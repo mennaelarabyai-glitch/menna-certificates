@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منة العربي · الشهادات والتكريمات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+/* pick the mode before paint: saved choice, else the viewer's system setting */
+(function(){var m;try{m=localStorage.getItem("menna-mode")}catch(e){}
+if(!m){var t=document.documentElement.getAttribute("data-theme");m=t==="light"||t==="dark"?t:(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark")}
+document.documentElement.setAttribute("data-mode",m);})();
+</script>
+<style>
+:root{
+  /* Menna's brand: night plum, electric violet, soft lavender */
+  --bg:#17131e; --surface:#211b2d; --surface-2:#2b2340; --card:#1b1626;
+  --ink:#f2eefc; --muted:#a9a1ba; --soft:#cbc3da;
+  --accent:#b09bf2; --violet:#693bdc; --deep:#391d78;
+  --line:rgba(242,238,252,.09); --bar:rgba(23,19,30,.74);
+  --glow1:#391d78; --glow2:#693bdc; --glowop:.42;
+  --shadow:0 34px 70px -30px rgba(105,59,220,1);
+  --display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Readex Pro",system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
+  /* Layout: hero → stats → issuer marquee → one panel per field; inside, landscape and portrait certificates each in their own even grid */
+  color-scheme:dark;
+}
+:root[data-mode="light"]{
+  --bg:#f2eefc; --surface:#ffffff; --surface-2:#ece6fa; --card:#ffffff;
+  --ink:#241d32; --muted:#6c6382; --soft:#4a4260;
+  --accent:#693bdc; --violet:#693bdc; --deep:#391d78;
+  --line:rgba(36,29,50,.10); --bar:rgba(242,238,252,.82);
+  --glow1:#b09bf2; --glow2:#d9cdfb; --glowop:.55;
+  --shadow:0 30px 60px -30px rgba(105,59,220,.55);
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg);overflow-x:hidden}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;overflow-x:hidden;transition:background .4s,color .4s}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:10px}
+.ltr{direction:ltr;unicode-bidi:isolate}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+
+.glow{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.glow i{position:absolute;border-radius:50%;filter:blur(110px);opacity:var(--glowop)}
+.glow .g1{width:60vmax;height:60vmax;background:var(--glow1);top:-30vmax;inset-inline-end:-20vmax;animation:d1 24s ease-in-out infinite alternate}
+.glow .g2{width:40vmax;height:40vmax;background:var(--glow2);top:35%;inset-inline-start:-22vmax;opacity:calc(var(--glowop)*.55);animation:d2 28s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(-14vmax,14vmax) scale(1.1)}}
+@keyframes d2{to{transform:translate(14vmax,-12vmax) scale(.9)}}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:30;background:var(--bar);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+.mark{width:40px;height:40px;border-radius:11px;display:block;box-shadow:0 8px 20px -10px rgba(105,59,220,.9)}
+.tools{display:flex;gap:8px}
+.tbtn{height:38px;min-width:38px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:var(--surface);display:inline-flex;align-items:center;justify-content:center;gap:6px;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s}
+.tbtn:hover{border-color:var(--accent);color:var(--accent)}
+.tbtn.icon{padding:0}
+[data-mode="dark"] .sun,[data-mode="light"] .moon{display:none}
+
+/* hero */
+.hero{padding:60px 0 24px}
+.eyebrow{display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:500;font-size:15px}
+.eyebrow::before{content:"";width:34px;height:2px;background:currentColor;border-radius:2px}
+h1{font-family:"Readex Pro",system-ui,sans-serif;font-weight:700;font-size:clamp(52px,10vw,112px);line-height:1.02;letter-spacing:-.02em;margin:18px 0 16px}
+h1 span{display:inline-block;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+.names{display:flex;align-items:center;flex-wrap:nowrap;gap:clamp(14px,2.6vw,34px);margin:18px 0 18px}
+[dir="ltr"] .names{flex-direction:row-reverse;justify-content:flex-end}
+.names h1{margin:0;white-space:nowrap;font-size:clamp(40px,6vw,80px)}
+.nm-ar{white-space:nowrap;font-family:"Readex Pro",sans-serif;font-weight:700;font-size:clamp(40px,6vw,80px);line-height:1.15;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+.nm-ar span{color:var(--accent)}
+.nsep{width:2px;align-self:stretch;margin:10px 0;background:linear-gradient(var(--violet),#b09bf2);border-radius:2px;opacity:.7}
+@media(max-width:820px){.names{flex-direction:column;align-items:flex-start;gap:6px}[dir="ltr"] .names{flex-direction:column-reverse}.nsep{display:none}.names h1,.nm-ar{font-size:clamp(46px,13vw,80px)}}
+.namerow{display:flex;align-items:center;gap:clamp(14px,2.4vw,26px);margin:18px 0 16px;direction:ltr;justify-content:flex-end}
+[dir="ltr"] .namerow{justify-content:flex-start}
+.namerow h1{margin:0}
+.logo{width:clamp(64px,10vw,116px);height:auto;aspect-ratio:1;border-radius:24%;box-shadow:0 18px 40px -16px rgba(105,59,220,.8);animation:logoIn 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes logoIn{from{transform:scale(.6) rotate(-12deg);opacity:0}}
+h1 .last{color:var(--accent);animation-delay:.12s}
+.bio{color:var(--soft);font-size:17px;line-height:1.85;max-width:68ch;margin:8px 0 22px}
+.sub{font-family:var(--display);font-size:clamp(23px,3.4vw,34px);font-weight:600;line-height:1.35;text-wrap:balance}
+.sub em{font-style:normal;color:var(--accent)}
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
+.roles span{font-size:14px;padding:7px 15px;border-radius:99px;background:var(--surface);border:1px solid var(--line)}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 0}
+@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:22px 22px 20px;position:relative;overflow:hidden}
+.stat.hot{background:linear-gradient(135deg,#5b31c8 0%,#3b1f86 70%,#6b56a7 130%);border-color:transparent;color:#fff;box-shadow:0 20px 50px -25px rgba(105,59,220,.9)}
+.stat .n{font-family:"Readex Pro",sans-serif;font-weight:700;font-size:clamp(30px,4.6vw,50px);line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums}
+.stat .n.sm{font-size:clamp(21px,3.4vw,38px);padding-top:6px}
+.stat .l{color:var(--muted);margin-top:10px;font-size:15px}
+.stat.hot .l{color:#e2d9ff}
+.stat.hot::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);transform:translateX(120%);animation:sheen 4.5s ease-in-out 1.2s infinite}
+@keyframes sheen{0%{transform:translateX(120%)}45%,100%{transform:translateX(-120%)}}
+
+.marquee{margin:38px 0 6px;border-block:1px solid var(--line);overflow:hidden;direction:ltr;-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:44px;width:max-content;padding:18px 0;animation:scroll 50s linear infinite}
+.track span{white-space:nowrap;color:var(--muted);font-size:15px;display:flex;align-items:center;gap:44px}
+.track span::after{content:"✦";color:var(--violet);font-size:12px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+.index{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 0}
+.index a{font-size:14px;padding:8px 16px;border-radius:99px;border:1px solid var(--line);color:var(--muted);background:var(--surface);transition:all .25s}
+.index a:hover{color:#fff;background:var(--violet);border-color:var(--violet)}
+.index b{font-family:"Readex Pro",sans-serif;color:var(--accent);margin-inline-end:6px;font-weight:600}
+.index a:hover b{color:#fff}
+
+/* field panels */
+.groups{display:grid;gap:26px;margin-top:42px}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:34px;padding:30px;position:relative;overflow:hidden;scroll-margin-top:84px}
+.group::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--violet),#b09bf2,var(--violet));transform-origin:center;transform:scaleX(.2);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.group.in::before{transform:scaleX(1)}
+@media(max-width:600px){.group{padding:20px 12px 12px;border-radius:24px}.ghead,.gsum{padding-inline:6px}.wrap{padding:0 12px}}
+.ghead{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;margin-bottom:6px}
+.num{font-family:"Readex Pro",sans-serif;font-weight:700;font-size:15px;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--violet),var(--deep));color:#fff;box-shadow:0 10px 30px -12px rgba(105,59,220,.9)}
+.ghead h2{font-family:var(--display);font-weight:700;font-size:clamp(23px,3.2vw,32px);line-height:1.25;text-wrap:balance}
+.meta{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.meta span{font-size:13px;padding:5px 12px;border-radius:99px;background:var(--surface-2);white-space:nowrap}
+.meta .yr{color:var(--accent);direction:ltr}
+@media(max-width:600px){.ghead{grid-template-columns:auto 1fr}.meta{grid-column:1/-1;justify-content:flex-start}}
+.gsum{color:var(--muted);max-width:72ch;margin:6px 0 24px}
+.gsum b{color:var(--ink);font-weight:600}
+
+.tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
+.tile{flex:0 0 calc((100% - 44px)/3)}
+@media(max-width:900px){.tile{flex-basis:calc((100% - 22px)/2)}}
+@media(max-width:600px){.tiles{gap:16px}.tile{flex-basis:100%}}
+.tile{display:flex;flex-direction:column;text-align:start;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;cursor:zoom-in;transform:perspective(1100px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));transition:transform .3s ease-out,box-shadow .45s,border-color .45s}
+.tile:hover{--ty:-6px;border-color:rgba(176,155,242,.55);box-shadow:var(--shadow)}
+.tile.seen{animation:tileIn 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes tileIn{from{transform:perspective(1100px) translateY(60px) rotateX(10deg) scale(.96)}}
+/* every certificate sits whole, centred, in an identical clean frame */
+.shot{position:relative;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(180deg,#f7f5fb,#ece8f4)}
+.box{position:absolute;inset:6%;display:flex;align-items:center;justify-content:center}
+.box img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;border-radius:3px;box-shadow:0 1px 2px rgba(36,29,50,.18),0 14px 28px -12px rgba(36,29,50,.45);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.tile:hover .box img{transform:scale(1.04)}
+.tile.seen .box img{animation:settle 1.3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes settle{from{transform:translateY(16px) scale(.92)}}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.6) 48%,rgba(176,155,242,.3) 52%,transparent 70%);transform:translateX(140%);pointer-events:none}
+.tile.seen .shot::after{animation:sweep 1.7s .4s ease-in-out both}
+.tile:hover .shot::after{animation:sweep 1.1s ease-in-out both}
+@keyframes sweep{from{transform:translateX(140%)}to{transform:translateX(-140%)}}
+.zoom{position:absolute;z-index:2;bottom:12px;inset-inline-end:12px;width:36px;height:36px;border-radius:50%;background:rgba(105,59,220,.92);display:grid;place-items:center;color:#fff;opacity:0;transform:scale(.7);transition:all .3s;box-shadow:0 10px 24px -8px rgba(0,0,0,.4);pointer-events:none}
+.tile:hover .zoom,.tile:focus-visible .zoom{opacity:1;transform:none}
+@media(hover:none){.zoom{opacity:1;transform:none;width:32px;height:32px}}
+.tinfo{padding:16px 18px 18px;display:flex;flex-direction:column;gap:4px;border-top:1px solid var(--line)}
+.tinfo h3{font-size:17px;font-weight:600;line-height:1.5;text-wrap:balance}
+.tinfo .by{font-size:13.5px;color:var(--accent);line-height:1.5}
+.tinfo .dt{font-size:13px;color:var(--muted)}
+.tinfo p{font-size:14.5px;color:var(--soft);margin-top:4px}
+
+/* viewer */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(10,8,15,.93);backdrop-filter:blur(10px);display:none;flex-direction:column;color:#f2eefc}
+.lb.open{display:flex;animation:fade .25s ease}
+@keyframes fade{from{opacity:.4}}
+.lb .stage{flex:1;display:flex;align-items:center;justify-content:center;padding:66px 70px 8px;min-height:0}
+.lb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 30px 80px -20px #000;animation:pop .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{transform:scale(.94)}}
+.lb .cap{padding:12px 20px 92px;text-align:center;max-width:780px;margin:0 auto}
+.lb .cap h3{font-family:var(--display);font-size:20px;font-weight:600}
+.lb .cap .by{color:#b09bf2;font-size:14px}
+.lb .cap p{color:#cbc3da;font-size:14.5px;margin-top:4px}
+.lb .ctl{position:absolute;width:46px;height:46px;border-radius:50%;border:1px solid rgba(242,238,252,.15);background:rgba(43,35,64,.9);color:#fff;cursor:pointer;display:grid;place-items:center}
+.lb .ctl:hover{background:#693bdc}
+.lb .x{top:14px;inset-inline-end:14px}
+.lb .prev{inset-inline-start:14px;top:45%}
+.lb .next{inset-inline-end:14px;top:45%}
+.lb .count{position:absolute;top:26px;right:24px;font-size:13px;color:#a9a1ba;direction:ltr}
+@media(max-width:600px){.lb .stage{padding:66px 10px 6px}.lb .prev,.lb .next{top:auto;bottom:20px}}
+[dir="ltr"] .lb .count{right:auto;left:24px}
+[dir="ltr"] .lb .prev svg,[dir="ltr"] .lb .next svg{transform:scaleX(-1)}
+
+footer{margin-top:70px;border-top:1px solid var(--line);padding:40px 0 50px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px;align-items:center}
+.cta{font-family:var(--display);font-size:clamp(22px,3vw,30px);font-weight:600}
+.cta em{font-style:normal;color:var(--accent)}
+.contacts{display:flex;flex-wrap:wrap;gap:10px}
+.contacts a{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:99px;background:var(--surface);border:1px solid var(--line);font-size:14px;transition:transform .25s}
+.contacts a.main{background:var(--violet);border-color:var(--violet);color:#fff}
+.contacts a:hover{transform:translateY(-2px)}
+
+.group.in{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{transform:translateY(26px)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.group::before{transform:none}}
+
+/* ===== v2: per-field colour, bolder section headers, raised cards ===== */
+.names h1,.nm-ar{font-size:clamp(24px,6.6vw,46px)!important}
+.names{flex-direction:row!important;align-items:center!important;gap:clamp(10px,2.4vw,26px)!important;flex-wrap:nowrap!important}
+[dir="ltr"] .names{flex-direction:row-reverse!important}
+@media(max-width:600px){.sub{font-size:19px}}
+.nsep{display:block!important;align-self:auto!important;height:.9em;margin:0!important;font-size:clamp(24px,6.6vw,46px);width:2px}
+.group{--ct:color-mix(in srgb,var(--c) 62%,#fff);background:radial-gradient(120% 60% at 100% 0%,color-mix(in srgb,var(--c) 16%,transparent),transparent 60%),var(--surface);border-color:color-mix(in srgb,var(--c) 28%,var(--line));padding:34px 30px 30px}
+[data-mode="light"] .group{--ct:color-mix(in srgb,var(--c) 88%,#000);background:radial-gradient(120% 60% at 100% 0%,color-mix(in srgb,var(--c) 10%,transparent),transparent 60%),var(--surface)}
+[dir="ltr"] .group{background-position:0 0}
+.group::before{height:4px;background:linear-gradient(90deg,var(--c),color-mix(in srgb,var(--c) 40%,#fff),var(--c))}
+.wm{position:absolute;top:-28px;left:22px;font-family:"Readex Pro",sans-serif;font-weight:700;font-size:170px;line-height:1;color:transparent;-webkit-text-stroke:2px color-mix(in srgb,var(--c) 22%,transparent);pointer-events:none;user-select:none;direction:ltr}
+[dir="ltr"] .wm{left:auto;right:22px}
+@media(max-width:600px){.wm{display:none}.group{padding:24px 12px 14px}}
+.ghead{position:relative;grid-template-columns:auto 1fr;align-items:center;gap:18px;margin-bottom:4px}
+.num{width:58px;height:58px;border-radius:18px;font-size:16px;background:linear-gradient(140deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c) 55%,color-mix(in srgb,var(--c) 70%,#000));box-shadow:0 14px 30px -12px var(--c),inset 0 1px 0 rgba(255,255,255,.35)}
+.gtitle .alt{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ct);margin-bottom:2px}
+.gtitle h2{font-size:clamp(24px,3.3vw,34px)}
+.gtitle h2::after{content:"";display:block;width:56px;height:4px;border-radius:4px;margin-top:10px;background:linear-gradient(90deg,var(--c),transparent)}
+[dir="rtl"] .gtitle h2::after{background:linear-gradient(270deg,var(--c),transparent)}
+.meta{position:relative;justify-content:flex-start;margin:14px 0 0}
+.meta span{background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 30%,transparent);color:var(--ink);font-weight:500}
+.meta .yr{color:var(--ct)}
+.gsum{position:relative;margin:12px 0 26px}
+.gsum b{color:var(--ct)}
+/* raised certificate cards */
+.tile{position:relative;border:1px solid color-mix(in srgb,var(--c) 26%,var(--line));border-radius:24px;box-shadow:0 22px 44px -28px color-mix(in srgb,var(--c) 80%,#000),0 2px 0 color-mix(in srgb,var(--c) 18%,transparent)}
+.tile::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;z-index:3;background:linear-gradient(90deg,var(--c),color-mix(in srgb,var(--c) 45%,#fff))}
+.tile:hover{border-color:var(--c);box-shadow:0 34px 70px -28px var(--c)}
+.shot{background:radial-gradient(90% 80% at 50% 0%,color-mix(in srgb,var(--c) 14%,#fff),color-mix(in srgb,var(--c) 6%,#efecf6))}
+.badge{position:absolute;z-index:3;top:14px;inset-inline-start:14px;font-size:12px;font-weight:600;padding:4px 11px;border-radius:99px;background:var(--c);color:#fff;box-shadow:0 8px 18px -8px var(--c);direction:ltr}
+.tinfo{border-top:0;padding:18px 20px 20px;gap:6px}
+.tinfo h3{font-size:17.5px}
+.tinfo .by{color:var(--ct);font-weight:500;display:flex;gap:7px;align-items:flex-start}
+.tinfo .by::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--c);margin-top:.62em}
+.zoom{background:var(--c)}
+.tile .box{inset:13% 7% 6%}
+/* carousel pieces pick up the field colour too */
+.dots button[aria-current="true"]{background:var(--c)!important}
+.prog i{background:linear-gradient(90deg,var(--c),color-mix(in srgb,var(--c) 45%,#fff))!important}
+.nav:hover{background:var(--c)!important;border-color:var(--c)!important}
+.ccap .by{color:var(--ct)}
+
+/* ===== v3: full-width coloured banner headings ===== */
+.group{padding:0 30px 30px}
+.group::before{display:none}
+.wm,.ghead,.meta{display:none!important}
+.bn{position:relative;overflow:hidden;margin:0 -30px 0;padding:26px 30px;display:flex;align-items:center;gap:20px;color:#fff;
+  background:linear-gradient(120deg,color-mix(in srgb,var(--c) 88%,#fff) 0%,var(--c) 45%,color-mix(in srgb,var(--c) 52%,#000) 100%)}
+[dir="rtl"] .bn{background:linear-gradient(240deg,color-mix(in srgb,var(--c) 88%,#fff) 0%,var(--c) 45%,color-mix(in srgb,var(--c) 52%,#000) 100%)}
+.bn::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 50%,rgba(255,255,255,.2),transparent 42%);pointer-events:none}
+[dir="ltr"] .bn::before{background:radial-gradient(circle at 12% 50%,rgba(255,255,255,.2),transparent 42%)}
+.bn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(130%);pointer-events:none}
+.group.in .bn::after{animation:bnSheen 1.6s .3s ease-in-out both}
+@keyframes bnSheen{from{transform:translateX(130%)}to{transform:translateX(-130%)}}
+.bnum{position:relative;font-family:"Readex Pro",sans-serif;font-weight:700;font-size:58px;line-height:1;color:rgba(255,255,255,.38);direction:ltr;flex:none}
+.bn .gtitle{position:relative;min-width:0}
+.bn .alt{font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-bottom:2px}
+.bn h2{font-family:var(--display);font-weight:700;font-size:clamp(23px,3.2vw,33px);line-height:1.25;color:#fff;text-wrap:balance}
+.bn h2::after{display:none}
+.bpill{position:relative;margin-inline-start:auto;flex:none;font-size:13.5px;font-weight:500;padding:7px 15px;border-radius:99px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);white-space:nowrap}
+.gsum{margin:20px 0 26px}
+@media(max-width:600px){
+  .group{padding:0 12px 14px}
+  .bn{margin:0 -12px;padding:20px 18px;display:grid;grid-template-columns:auto 1fr;gap:10px 14px}
+  .bnum{font-size:40px}
+  .bn .alt{font-size:11px;letter-spacing:.1em}
+  .bpill{grid-column:1/-1;justify-self:start;margin:0}
+}
+
+/* ===== v4: colourful hero ===== */
+.hero{position:relative}
+.hero::before{content:"";position:absolute;inset:-40px 0 auto;height:520px;z-index:-1;pointer-events:none;
+  background:radial-gradient(30% 45% at 85% 30%,color-mix(in srgb,#693bdc 35%,transparent),transparent 70%),
+             radial-gradient(28% 40% at 20% 45%,color-mix(in srgb,#2f6fe4 28%,transparent),transparent 70%),
+             radial-gradient(25% 35% at 55% 90%,color-mix(in srgb,#0f9d8a 22%,transparent),transparent 70%);
+  filter:blur(10px);animation:heroGlow 14s ease-in-out infinite alternate}
+@keyframes heroGlow{to{transform:translateY(18px) scale(1.04);filter:blur(16px) hue-rotate(-12deg)}}
+.eyebrow::before{width:46px;height:3px;background:linear-gradient(90deg,#693bdc,#2f6fe4,#0f9d8a,#c8902a,#e0457b)}
+.nm-ar span,.names h1 .last{background:linear-gradient(90deg,#9b7bff,#5b9dff,#2fd0b5,#f2b84b,#ff6f9f,#9b7bff);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent!important;animation:hueFlow 9s linear infinite}
+[data-mode="light"] .nm-ar span,[data-mode="light"] .names h1 .last{background-image:linear-gradient(90deg,#693bdc,#2f6fe4,#0f9d8a,#c8902a,#e0457b,#693bdc)}
+@keyframes hueFlow{to{background-position:300% 0}}
+.nsep{background:linear-gradient(#693bdc,#2f6fe4,#0f9d8a,#c8902a,#e0457b)}
+.sub em{background:linear-gradient(90deg,#9b7bff,#5b9dff);-webkit-background-clip:text;background-clip:text;color:transparent}
+[data-mode="light"] .sub em{background-image:linear-gradient(90deg,#693bdc,#2f6fe4)}
+/* role chips, each in a field colour */
+.roles{gap:10px}
+.roles span{--rc:#693bdc;display:inline-flex;align-items:center;gap:9px;font-weight:500;padding:8px 16px 8px 18px;
+  background:color-mix(in srgb,var(--rc) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--rc) 45%,transparent);
+  box-shadow:0 10px 22px -16px var(--rc);transition:transform .3s,box-shadow .3s,background .3s}
+.roles span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--rc);box-shadow:0 0 0 4px color-mix(in srgb,var(--rc) 22%,transparent)}
+.roles span:hover{transform:translateY(-3px);background:color-mix(in srgb,var(--rc) 24%,var(--surface));box-shadow:0 16px 28px -14px var(--rc)}
+.roles span{animation:chipIn .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*80ms + .2s)}
+@keyframes chipIn{from{transform:translateY(14px) scale(.96)}}
+/* stats: four coloured tiles */
+.stats{gap:16px}
+.stat{--sc:#693bdc;border:0;color:#fff;padding:24px 24px 22px;
+  background:linear-gradient(140deg,color-mix(in srgb,var(--sc) 85%,#fff) 0%,var(--sc) 45%,color-mix(in srgb,var(--sc) 55%,#000) 100%);
+  box-shadow:0 22px 44px -24px var(--sc),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.stat:hover{transform:translateY(-5px);box-shadow:0 30px 56px -24px var(--sc),inset 0 1px 0 rgba(255,255,255,.25)}
+.stat .l{color:rgba(255,255,255,.85)!important;font-weight:500}
+.stat .n{color:#fff}
+.stat::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);transform:translateX(120%);animation:sheen 5s ease-in-out infinite;animation-delay:calc(var(--i)*.6s + 1s)}
+.stat .si{position:relative;margin-bottom:16px;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22)}
+.stat::before{content:"";position:absolute;width:140px;height:140px;border-radius:50%;inset-inline-end:-40px;bottom:-60px;background:rgba(255,255,255,.08)}
+
+/* ===== v5: compact stats + tighter band after them ===== */
+.stats{gap:12px!important;margin-top:26px!important}
+.stat{padding:16px 18px!important;border-radius:20px!important;display:grid!important;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center}
+.stat .si{grid-row:1/3;margin:0!important;width:34px!important;height:34px!important;border-radius:10px!important}
+.stat .si svg{width:17px;height:17px}
+.stat .n{font-size:clamp(22px,2.6vw,32px)!important;padding:0!important}
+.stat .n.sm{font-size:clamp(18px,2.1vw,26px)!important}
+.stat .l{margin-top:2px!important;font-size:13px!important;line-height:1.4}
+.stat::before{width:90px!important;height:90px!important;bottom:-50px!important}
+.marquee{margin:26px 0 0!important}
+.track{padding:11px 0!important}
+.track span{font-size:13.5px!important}
+.groups{margin-top:28px!important}
+@media(max-width:600px){
+  .stats{gap:10px!important}
+  .stat{padding:12px 13px!important;border-radius:16px!important;column-gap:10px}
+  .stat .si{width:30px!important;height:30px!important;border-radius:9px!important}
+  .stat .si svg{width:15px;height:15px}
+  .stat .n{font-size:22px!important}
+  .stat .n.sm{font-size:16px!important}
+  .stat .l{font-size:12px!important}
+  .marquee{margin-top:20px!important}
+  .groups{margin-top:22px!important}
+}
+
+/* ===== v6: compact role chips + contact section ===== */
+@media(max-width:600px){
+  .roles{gap:7px!important;margin-top:16px!important}
+  .roles span{font-size:12px!important;padding:5px 10px 5px 11px!important;gap:6px!important}
+  .roles span::before{width:7px!important;height:7px!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--rc) 22%,transparent)!important}
+}
+footer.contact{margin-top:60px;border:0;padding:0 0 36px}
+footer.contact .wrap{display:block}
+.chead{position:relative;overflow:hidden;display:flex;align-items:center;gap:20px;padding:30px;border-radius:30px 30px 0 0;color:#fff;
+  background:linear-gradient(120deg,#8e6bff 0%,#693bdc 40%,#2f6fe4 75%,#0f9d8a 110%);background-size:180% 100%;animation:cgrad 10s ease-in-out infinite alternate}
+@keyframes cgrad{to{background-position:100% 0}}
+.chead::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;inset-inline-end:-60px;top:-110px;background:rgba(255,255,255,.1)}
+.chead::before{content:"";position:absolute;width:160px;height:160px;border-radius:50%;inset-inline-end:140px;bottom:-110px;background:rgba(255,255,255,.07)}
+.clogo{position:relative;z-index:1;width:64px;height:64px;border-radius:18px;box-shadow:0 14px 30px -10px rgba(0,0,0,.5);animation:floaty 5s ease-in-out infinite}
+@keyframes floaty{50%{transform:translateY(-6px) rotate(-3deg)}}
+.chead>div{position:relative;z-index:1}
+.cta{font-family:var(--display);font-size:clamp(26px,3.6vw,38px);font-weight:700;line-height:1.2;color:#fff}
+.csub{color:rgba(255,255,255,.85);font-size:15px;margin-top:4px;max-width:60ch}
+.ccards{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,1.1fr);gap:14px;padding:18px;background:var(--surface);border:1px solid var(--line);border-top:0;border-radius:0 0 30px 30px}
+@media(max-width:820px){.ccards{grid-template-columns:minmax(0,1fr)}}
+.cc{position:relative;overflow:hidden;min-width:0;display:flex;align-items:center;gap:14px;padding:16px;border-radius:20px;text-decoration:none;color:var(--ink);
+  background:color-mix(in srgb,var(--k) 9%,var(--card));border:1px solid color-mix(in srgb,var(--k) 30%,transparent);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;animation:ccIn .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*110ms)}
+@keyframes ccIn{from{transform:translateY(18px)}}
+.cc:hover{transform:translateY(-4px);border-color:var(--k);box-shadow:0 22px 40px -22px var(--k)}
+.cc::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(110deg,transparent 30%,color-mix(in srgb,var(--k) 22%,transparent) 50%,transparent 70%);transform:translateX(120%);transition:none;pointer-events:none}
+.cc:hover::after{transform:translateX(-120%);transition:transform .9s ease}
+.cfill{position:absolute;inset:0;border-radius:inherit;z-index:0}
+.cic{position:relative;z-index:1;pointer-events:none;flex:none;width:48px;height:48px;border-radius:15px;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(140deg,color-mix(in srgb,var(--k) 80%,#fff),var(--k) 50%,color-mix(in srgb,var(--k) 60%,#000));box-shadow:0 10px 22px -10px var(--k)}
+.ct{position:relative;z-index:1;pointer-events:none;display:flex;flex-direction:column;min-width:0;flex:1}
+.cl{font-size:13px;color:var(--muted)}
+.cv{font-size:14px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;text-align:start}
+.ccopy #copyT{display:none}
+.ccopy.ok #copyT{display:inline}
+.ccopy{padding:0 10px!important}
+.carr{position:relative;z-index:1;flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--k);background:color-mix(in srgb,var(--k) 14%,transparent);transition:transform .35s}
+[dir="rtl"] .carr svg{transform:scaleX(-1)}
+.cc:hover .carr{transform:translate(0,-3px) scale(1.08);background:var(--k);color:#fff}
+.ccopy{position:relative;z-index:2;flex:none;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:99px;cursor:pointer;font-size:13px;font-weight:500;color:var(--k);background:color-mix(in srgb,var(--k) 14%,transparent);border:1px solid color-mix(in srgb,var(--k) 30%,transparent)}
+.ccopy:hover,.ccopy.ok{background:var(--k);color:#fff}
+.cfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;padding:0 6px;color:var(--muted);font-size:13px}
+.cfoot a{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--surface);border:1px solid var(--line);font-size:16px;transition:transform .3s}
+.cfoot a:hover{transform:translateY(-3px)}
+@media(max-width:600px){.chead{padding:22px 18px;gap:14px;border-radius:24px 24px 0 0}.clogo{width:50px;height:50px;border-radius:14px}.csub{font-size:13.5px}.ccards{padding:12px;border-radius:0 0 24px 24px}.cc{padding:13px}.cic{width:42px;height:42px;border-radius:13px}}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"><i class="g1"></i><i class="g2"></i></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" id="brandLink"><img class="mark" src="logo.jpg" alt=""></a>
+    <div class="tools">
+      <button class="tbtn" id="langBtn" type="button"></button>
+      <button class="tbtn icon" id="modeBtn" type="button">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <div class="eyebrow" id="eyebrow"></div>
+    <div class="names"><div class="nm-ar" lang="ar">منة <span>العربي</span></div><i class="nsep" aria-hidden="true"></i><h1 class="ltr" id="nm" aria-label="Menna Elaraby"><span class="word" aria-hidden="true">Menna</span> <span class="word last" aria-hidden="true">Elaraby</span></h1></div>
+    
+    <p class="sub" id="sub"></p>
+    <div class="roles" id="roles"></div>
+    <div class="stats" id="stats"></div>
+  </section>
+  <div class="marquee" id="marquee"><div class="track" id="track"></div></div>
+  <div class="groups" id="groups"></div>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="chead">
+      <img class="clogo" src="logo.jpg" alt="" aria-hidden="true">
+      <div><h2 class="cta" id="cta"></h2><p class="csub" id="ctaSub"></p></div>
+    </div>
+    <div class="ccards">
+      <a class="cc" style="--k:#693bdc;--i:0" href="https://mennaelaraby-visuals.vercel.app" target="_blank" rel="noopener">
+        <span class="cic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></span>
+        <span class="ct"><span class="cl" id="work"></span><span class="cv ltr">mennaelaraby-visuals.vercel.app</span></span>
+        <span class="carr" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+      </a>
+      <a class="cc" style="--k:#0f9d8a;--i:1" href="https://wa.me/201011606481" target="_blank" rel="noopener">
+        <span class="cic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20l1.3-3.9A8 8 0 1112 20a8 8 0 01-3.9-1z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a3.5 3.5 0 01-1.8-1.8l.8-1-1-2z"/></svg></span>
+        <span class="ct"><span class="cl" id="wa"></span><span class="cv ltr">+20 101 160 6481</span></span>
+        <span class="carr" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+      </a>
+      <div class="cc" style="--k:#2f6fe4;--i:2">
+        <a class="cfill" href="mailto:mennaelaraby.ai@gmail.com" aria-labelledby="mailL"></a>
+        <span class="cic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></span>
+        <span class="ct"><span class="cl" id="mailL"></span><span class="cv ltr">mennaelaraby.ai@gmail.com</span></span>
+        <button class="ccopy" type="button" id="copyBtn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg><span id="copyT"></span></button>
+      </div>
+    </div>
+    <div class="cfoot"><span><bdi class="ltr">© 2026 Menna Elaraby</bdi> · منة العربي</span><a href="#top" id="toTop">↑</a></div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <span class="count" id="lb-count"></span>
+  <button class="ctl x" id="lb-x" type="button"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="ctl prev" id="lb-prev" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+  <button class="ctl next" id="lb-next" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <div class="stage" id="lb-stage"><img id="lb-img" alt=""></div>
+  <div class="cap"><h3 id="lb-title"></h3><div class="by" id="lb-by"></div><p id="lb-desc"></p></div>
+</div>
+
+<script>
+const DATA = {"profile": {"site": "mennaelaraby-visuals.vercel.app", "email": "mennaelaraby.ai@gmail.com", "phone": "+20 101 160 6481", "bio": {"ar": "صانعة محتوى مرئي، أعمل على الفكرة والسيناريو والتصوير والإنتاج بأدوات الذكاء الاصطناعي، وأدير صفحات التواصل الاجتماعي ومحتواها. أعمل كذلك في العلاقات العامة والإتيكيت والبروتوكول، والأعمال الإدارية والتنظيمية، وإدارة المواقع والتطبيقات التعليمية، ولي مشاركات عديدة في العمل المدني والتطوعي.", "en": "Visual content creator working across concept, scriptwriting, photography and AI-powered production, and managing social media pages and their content. I also work in public relations, etiquette and protocol, administration and organization, and educational websites and apps, with extensive involvement in civic and volunteer work."}, "roles": {"ar": ["صناعة المحتوى المرئي", "العلاقات العامة والإتيكيت والبروتوكول", "الأعمال الإدارية والتنظيمية", "المواقع والتطبيقات التعليمية", "العمل المدني والتطوعي"], "en": ["Visual Content Creation", "Public Relations, Etiquette & Protocol", "Administration & Organization", "Educational Websites & Apps", "Civic & Volunteer Work"]}}, "stats": [["21", {"ar": "شهادة وتكريم", "en": "Certificates & honors"}], ["16", {"ar": "جهة مانحة", "en": "Issuing organizations"}], ["6", {"ar": "مجالات", "en": "Fields"}], ["2010–2026", {"ar": "رحلة تعلّم مستمرة", "en": "Continuous learning"}]], "groups": [{"id": "ai", "years": "2025–2026", "ar": {"title": "الذكاء الاصطناعي وصناعة المحتوى", "summary": "تعلّم مستمر في أدوات الذكاء الاصطناعي وصناعة المحتوى الرقمي، وهو الأساس الذي يقوم عليه عملي في صناعة المحتوى المرئي."}, "en": {"title": "AI & Content Creation", "summary": "Ongoing training in AI tools and digital content creation, the foundation of my visual content work."}, "items": [{"img": "upgrade-ai", "ar": {"title": "الذكاء الاصطناعي للأعمال", "issuer": "Upgrade AI", "date": "سبتمبر 2026", "desc": "هندسة الأوامر، واستخدام ChatGPT وClaude وGemini وNotebookLM، وتوظيف أدوات الذكاء الاصطناعي في العمل وأتمتة الأعمال."}, "en": {"title": "AI for Business", "issuer": "Upgrade AI", "date": "September 2026", "desc": "Prompt engineering; ChatGPT, Claude, Gemini and NotebookLM; applying AI tools to everyday work and business automation."}, "o": "l"}, {"img": "microsoft-ai-girls", "ar": {"title": "المهارات الرقمية والذكاء الاصطناعي للفتيات", "issuer": "وزارة الشباب والرياضة مع Microsoft وكير مصر", "date": "1–5 مارس 2026", "desc": "برنامج تدريبي في المهارات الرقمية وتطبيقات الذكاء الاصطناعي، ضمن برامج تمكين النشء والشباب."}, "en": {"title": "Digital Skills and AI for Girls", "issuer": "Ministry of Youth and Sports with Microsoft and CARE Egypt", "date": "1–5 March 2026", "desc": "Training in digital skills and AI applications, part of the national youth empowerment programs."}, "o": "l"}, {"img": "benghanem-content", "ar": {"title": "كيف تتعلم صناعة المحتوى وتربح منه", "issuer": "بن غانم ويب للتسويق الإلكتروني", "date": "28 أبريل 2025", "desc": "دورة أونلاين مدتها 3.5 ساعات تدريبية في أساسيات صناعة المحتوى وتحويله إلى مصدر دخل."}, "en": {"title": "Learning Content Creation and Earning From It", "issuer": "BenGhanem Web for E-Marketing", "date": "28 April 2025", "desc": "A 3.5-hour online course on content creation fundamentals and turning content into income."}, "o": "l"}], "c": "#693bdc"}, {"id": "pr", "years": "2026", "ar": {"title": "العلاقات العامة والقيادة", "issuer": "المجموعة العربية للدراسات", "summary": "برنامجان تدريبيان بالتعاون مع مركز تنمية الموارد البشرية بمحافظة القاهرة والجمعية العامة للتنظيم والإدارة."}, "en": {"title": "Public Relations & Leadership", "issuer": "Arab Group for Studies", "summary": "Two training programs in cooperation with the Human Resources Development Center of Cairo Governorate and the General Society for Organization and Administration."}, "items": [{"img": "pr-certificate-en", "ar": {"title": "إعداد مديري العلاقات العامة (شهادة إتمام)", "issuer": "Arab Group for Studies", "date": "أبريل 2026", "desc": "شهادة إتمام البرنامج باللغة الإنجليزية، 20 ساعة معتمدة."}, "en": {"title": "Preparing Public Relations Managers", "issuer": "Arab Group for Studies", "date": "April 2026", "desc": "Certificate of completion, 20 credit hours."}, "o": "l"}, {"img": "pr-certificate-apr", "ar": {"title": "شهادة حضور برنامج العلاقات العامة والإتيكيت والبروتوكول", "issuer": "المجموعة العربية للدراسات", "date": "أبريل 2026", "desc": "بالتعاون مع المركز الإقليمي للتدريب ومركز تنمية الموارد البشرية بمحافظة القاهرة."}, "en": {"title": "Attendance: PR, Etiquette & Protocol Program", "issuer": "Arab Group for Studies", "date": "April 2026", "desc": "In cooperation with the Regional Training Center and the HR Development Center, Cairo Governorate."}, "o": "l"}, {"img": "pr-admin-cairo", "ar": {"title": "إعداد مديري العلاقات العامة", "issuer": "المجموعة العربية للدراسات والمركز الإقليمي للتدريب والتنمية", "date": "7 مارس – 4 أبريل 2026", "desc": "شهادة تدريب إداري (20 ساعة تدريبية) ضمن برامج التطوير والإصلاح الإداري المتوافقة مع رؤية مصر 2030."}, "en": {"title": "Preparing Public Relations Managers", "issuer": "Arab Group for Studies & Regional Center for Training and Development", "date": "7 March – 4 April 2026", "desc": "Administrative training certificate (20 hours) within administrative reform programs aligned with Egypt Vision 2030."}, "o": "p"}, {"img": "pr-training-cert", "ar": {"title": "إعداد مديري العلاقات العامة والإتيكيت والبروتوكول", "issuer": "المجموعة العربية للدراسات والجمعية العربية للتطوير الإداري", "date": "مارس – أبريل 2026", "desc": "شهادة تدريبية معتمدة، 20 ساعة تدريبية."}, "en": {"title": "PR Managers, Etiquette & Protocol", "issuer": "Arab Group for Studies & Arab Society for Administrative Development", "date": "March – April 2026", "desc": "Accredited training certificate, 20 training hours."}, "o": "p"}, {"img": "pr-statement", "ar": {"title": "إفادة بمحاور البرنامج التدريبي", "issuer": "المجموعة العربية للدراسات", "date": "مارس – أبريل 2026", "desc": "من المحاور: المتحدث الإعلامي، وإدارة الأزمات الإعلامية، وتنظيم المؤتمرات الصحفية والاحتفالات والندوات، وفنون الإتيكيت والبروتوكول."}, "en": {"title": "Statement of Program Modules", "issuer": "Arab Group for Studies", "date": "March – April 2026", "desc": "Modules include media spokesperson skills, media crisis management, organizing press conferences and events, and etiquette and protocol."}, "o": "p"}, {"img": "leaders-prep", "ar": {"title": "إعداد القادة", "issuer": "المجموعة العربية للدراسات", "date": "مارس 2026", "desc": "برنامج تدريبي في مهارات القيادة، 20 ساعة تدريبية."}, "en": {"title": "Leadership Preparation", "issuer": "Arab Group for Studies", "date": "March 2026", "desc": "Leadership skills training program, 20 training hours."}, "o": "p"}], "c": "#2f6fe4"}, {"id": "conf", "years": "2023", "ar": {"title": "المؤتمرات والملتقيات", "summary": "مشاركة في مؤتمر أكسفورد الحادي عشر والملتقى العربي للتدريب ضمن مبادرات التدريب والتنمية المستدامة، وحضور سلسلة ندوات «هو وهي»."}, "en": {"title": "Conferences & Forums", "summary": "Participation in the 11th Oxford Conference and the Arab Training Forum within training and sustainable development initiatives, and attendance at the He and She seminar series."}, "items": [{"img": "oxford-business", "ar": {"title": "ورشة تدريبية في إدارة الأعمال", "issuer": "أكاديمية أكسفورد للاستشارات والدراسات المتخصصة", "date": "7 يناير 2023", "desc": "6 ساعات تدريبية معتمدة ضمن مؤتمر أكسفورد الحادي عشر ومبادرة «التأهيل من أجل التدريب والتشغيل»."}, "en": {"title": "Business Administration Workshop", "issuer": "Oxford Academy for Consulting and Specialized Studies", "date": "7 January 2023", "desc": "6 accredited training hours at the 11th Oxford Conference, part of the Qualification for Training and Employment initiative."}, "o": "p"}, {"img": "oxford-conference", "ar": {"title": "شهادة حضور مؤتمر أكسفورد الحادي عشر", "issuer": "أكاديمية أكسفورد وبرنامج «الفن والمجتمع»", "date": "2023", "desc": "تقديرًا للحضور والمشاركة في فعاليات المؤتمر، تحت رعاية الاتحاد العربي للعلوم الإدارية."}, "en": {"title": "11th Oxford Conference: Attendance", "issuer": "Oxford Academy & the Art and Society program", "date": "2023", "desc": "For attending and taking part in the conference, under the patronage of the Arab Union for Administrative Sciences."}, "o": "p"}, {"img": "arab-forum-2023", "ar": {"title": "الملتقى العربي للتدريب من أجل تحقيق التنمية المستدامة", "issuer": "مركز أرسى للتدريب والاستشارات ومركز المتحدة للتدريب", "date": "25 فبراير 2023", "desc": "تقديرًا للمشاركة الإيجابية التي كان لها أثر في نجاح الملتقى."}, "en": {"title": "Arab Training Forum for Sustainable Development", "issuer": "Arsa Center for Training & Consulting and United Training Center", "date": "25 February 2023", "desc": "In recognition of positive participation that contributed to the forum's success."}, "o": "p"}, {"img": "nomow-center", "ar": {"title": "شهادة تقدير", "issuer": "مركز النمو للتخاطب", "date": "", "desc": "تقديرًا لحضور الندوة رقم 100 من سلسلة ندوات «هو وهي»."}, "en": {"title": "Certificate of Appreciation", "issuer": "Al-Nomow Speech Therapy Center", "date": "", "desc": "For attending the 100th seminar in the He and She series."}, "o": "l"}], "c": "#0f9d8a"}, {"id": "civic", "years": "2016", "ar": {"title": "العمل المدني والتطوعي", "summary": "برامج لتدريب المتطوعين، وورش عمل للمشاركة الشبابية في الحياة المدنية، وعضوية الوحدة التنظيمية في نادي متطوعي الإسكندرية."}, "en": {"title": "Civic & Volunteer Work", "summary": "Volunteer training programs, workshops on youth participation in civic life, and membership of the Alexandria volunteers club organizing unit."}, "items": [{"img": "alex-volunteers", "ar": {"title": "برنامج «المتطوعين لمحافظة الإسكندرية»", "issuer": "لجنة العمل المدني بمحافظة الإسكندرية ومؤسسة «اتجاه» للشباب والتنمية", "date": "", "desc": "تدريب لمدة ثلاثة أيام على التنمية والتطوع وبناء الفريق وتخطيط المبادرات، ومناقشة قضايا مجتمعية وبيئية ومرورية."}, "en": {"title": "Volunteers for Alexandria Governorate", "issuer": "Civil Work Committee, Alexandria Governorate & Etijah Foundation", "date": "", "desc": "Three-day training in development, volunteering, team building and initiative planning, with discussions of community, environmental and traffic issues."}, "o": "l"}, {"img": "sadat-workshop", "ar": {"title": "ورشة «المشاركة الشبابية بين الواقع والمأمول»", "issuer": "جمعية السادات للتنمية والرعاية الاجتماعية", "date": "", "desc": "ضمن مشروع مشاركة الشباب في الحياة المدنية والسياسية، مع شكر على الحضور المتميز والأداء الفعّال."}, "en": {"title": "Workshop: Youth Participation, Reality and Aspiration", "issuer": "El Sadat Association for Development and Social Welfare", "date": "", "desc": "Part of a project on youth participation in civic and political life, with thanks for outstanding attendance and performance."}, "o": "l"}, {"img": "avad-volunteers", "ar": {"title": "شهادة تقدير: الوحدة التنظيمية في نادي AVAD", "issuer": "نادي متطوعي الإسكندرية للتوعية والتنمية (AVAD) برعاية صندوق مكافحة وعلاج الإدمان والتعاطي", "date": "يناير – أغسطس 2016", "desc": "تقديرًا للمساهمة في تنفيذ أنشطة المبادرة كعضو في الوحدة التنظيمية خلال الموسم الثالث للنادي."}, "en": {"title": "Certificate of Acknowledgement: AVAD Organizing Unit", "issuer": "Alexandria Volunteers for Awareness and Development Club (AVAD), sponsored by the Fund for Drug Control and Treatment of Addiction", "date": "January – August 2016", "desc": "For valuable contribution to the initiative's activities as a member of the Organizing Unit in the club's 3rd season."}, "o": "l"}], "c": "#e0457b"}, {"id": "press", "years": "2017", "ar": {"title": "الإعلام والصحافة", "summary": "شهادات إنجاز وتقدير عن العمل الصحفي."}, "en": {"title": "Press & Media", "summary": "Certificates of achievement and appreciation for press work."}, "items": [{"img": "alnahar-press", "ar": {"title": "شهادة إنجاز: On Press", "issuer": "شبكة أخبار النهار", "date": "23 سبتمبر 2017", "desc": "شهادة إنجاز عن العمل الصحفي."}, "en": {"title": "Certificate of Achievement: On Press", "issuer": "Al-Nahar News Network", "date": "23 September 2017", "desc": "Certificate of achievement for press work."}, "o": "l"}, {"img": "acc-press", "ar": {"title": "شهادة إنجاز: On Press", "issuer": "ACC", "date": "", "desc": "شهادة إنجاز عن العمل الصحفي."}, "en": {"title": "Certificate of Achievement: On Press", "issuer": "ACC", "date": "", "desc": "Certificate of achievement for press work."}, "o": "l"}, {"img": "appreciation-press", "ar": {"title": "شهادة تقدير: On Press", "issuer": "جمعية للتنمية المجتمعية", "date": "2017", "desc": "شهادة تقدير عن العمل الصحفي."}, "en": {"title": "Certificate of Appreciation: On Press", "issuer": "Community development association", "date": "2017", "desc": "Certificate of appreciation for press work."}, "o": "l"}], "c": "#e66a2c"}, {"id": "early", "years": "2010–2016", "ar": {"title": "انطلاقة المسيرة", "summary": "ورشة في مهارات العرض والتقديم، وفوز في مسابقة ثقافية وفنية."}, "en": {"title": "Where It All Began", "summary": "A presentation skills workshop and a win in a cultural and arts competition."}, "items": [{"img": "aast-present-to-win", "ar": {"title": "ورشة «Present to Win V.2»", "issuer": "الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري", "date": "22 و28 أبريل 2016", "desc": "ورشة في مهارات العرض والتقديم بكلية الهندسة والتكنولوجيا في الإسكندرية."}, "en": {"title": "Present to Win V.2 Workshop", "issuer": "Arab Academy for Science, Technology & Maritime Transport", "date": "22 & 28 April 2016", "desc": "Presentation skills workshop at the College of Engineering and Technology, Alexandria."}, "o": "l"}, {"img": "baraka-contest", "ar": {"title": "شهادة تقدير للفوز في المسابقة الثقافية والفنية", "issuer": "شركة البركة لتنقية ومعالجة المياه", "date": "2010", "desc": "تقديرًا للفوز في المسابقة الثقافية والفنية."}, "en": {"title": "Appreciation: Cultural & Arts Competition Winner", "issuer": "Al Baraka Water Treatment Company", "date": "2010", "desc": "In recognition of winning the cultural and arts competition."}, "o": "l"}], "c": "#5b5fd6"}], "issuers": {"ar": ["Upgrade AI", "Microsoft", "وزارة الشباب والرياضة", "كير مصر", "المجموعة العربية للدراسات", "الجمعية العامة للتنظيم والإدارة", "أكاديمية أكسفورد", "محافظة الإسكندرية", "جمعية السادات", "مركز النمو للتخاطب", "الملتقى العربي للتدريب", "شبكة أخبار النهار", "الأكاديمية العربية للعلوم والتكنولوجيا", "بن غانم ويب", "نادي AVAD للمتطوعين", "صندوق مكافحة وعلاج الإدمان"], "en": ["Upgrade AI", "Microsoft", "Ministry of Youth and Sports", "CARE Egypt", "Arab Group for Studies", "General Society for Organization and Administration", "Oxford Academy", "Alexandria Governorate", "El Sadat Association", "Al-Nomow Center", "Arab Training Forum", "Al-Nahar News Network", "Arab Academy for Science & Technology", "BenGhanem Web", "AVAD Volunteers Club", "Fund for Drug Control and Treatment of Addiction"]}, "ui": {"ar": {"eyebrow": "ملف الشهادات والتكريمات", "sub": "شهادات ودورات وتكريمات من <em>16 جهة</em>، مرتّبة حسب المجال.", "fields": "المجالات", "issuers": "الجهات المانحة", "cert1": "شهادة", "certN": "شهادات", "view": "عرض الشهادة", "cta": "لنتواصل", "ctaSub": "متاحة للتعاون في صناعة المحتوى المرئي، والعلاقات العامة، والأعمال الإدارية والتنظيمية.", "work": "أعمالي في المحتوى المرئي", "workV": "الموقع الشخصي", "wa": "واتساب", "mail": "البريد الإلكتروني", "copy": "نسخ", "copied": "تم النسخ", "copyLabel": "نسخ البريد الإلكتروني", "close": "إغلاق", "prev": "السابق", "next": "التالي", "theme": "تبديل الوضع الفاتح والداكن", "lang": "English", "langLabel": "Switch to English", "brand": "منة العربي", "pill": "الشهادات والتكريمات"}, "en": {"eyebrow": "Certificates & Honors Portfolio", "sub": "Certificates, courses and honors from <em>16 organizations</em>, grouped by field.", "fields": "Fields", "issuers": "Issuing organizations", "cert1": "certificate", "certN": "certificates", "view": "View certificate", "cta": "Let's connect", "ctaSub": "Open to collaboration in visual content creation, public relations, and administration.", "work": "My visual content work", "workV": "Personal website", "wa": "WhatsApp", "mail": "Email", "copy": "Copy", "copied": "Copied", "copyLabel": "Copy email address", "close": "Close", "prev": "Previous", "next": "Next", "theme": "Toggle light and dark mode", "lang": "عربي", "langLabel": "التبديل إلى العربية", "brand": "Menna Elaraby", "pill": "Certificates & Honors"}}};
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const root = document.documentElement;
+let lang = location.hash === "#en" ? "en" : "ar";
+let flat = [];
+
+/* light / dark */
+$("modeBtn").onclick = () => {
+  const m = root.getAttribute("data-mode") === "dark" ? "light" : "dark";
+  root.setAttribute("data-mode", m);
+  try { localStorage.setItem("menna-mode", m); } catch (e) {}
+};
+
+/* language */
+$("langBtn").onclick = () => { lang = lang === "ar" ? "en" : "ar"; history.replaceState(null, "", lang === "en" ? "#en" : location.pathname + location.search); render(); scrollTo({top:0}); };
+addEventListener("hashchange", () => { const l = location.hash === "#en" ? "en" : "ar"; if (l !== lang) { lang = l; render(); } });
+
+function render(){
+  const T = DATA.ui[lang];
+  root.lang = lang; root.dir = lang === "ar" ? "rtl" : "ltr";
+  document.title = lang === "ar" ? "منة العربي · الشهادات والتكريمات" : "Menna Elaraby · Certificates & Honors";
+  $("brandLink").setAttribute("aria-label", T.brand);
+  $("langBtn").textContent = T.lang; $("langBtn").setAttribute("aria-label", T.langLabel);
+  $("modeBtn").setAttribute("aria-label", T.theme); $("modeBtn").title = T.theme;
+  $("eyebrow").textContent = T.eyebrow;
+  
+  $("sub").innerHTML = T.sub;
+  const RC=["#693bdc","#2f6fe4","#c8902a","#0f9d8a","#e0457b"];
+  $("roles").innerHTML = DATA.profile.roles[lang].map((r,i) => `<span style="--rc:${RC[i%5]};--i:${i}">${esc(r)}</span>`).join("");
+  const SC=["#693bdc","#2f6fe4","#0f9d8a","#c8902a"], SI=["<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><circle cx=\"12\" cy=\"9\" r=\"6\"/><path d=\"M8.5 14L7 22l5-3 5 3-1.5-8\"/></svg>", "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><path d=\"M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6\"/></svg>", "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"2\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"2\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"2\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"2\"/></svg>", "<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"><path d=\"M3 17l6-6 4 4 8-8\"/><path d=\"M15 7h6v6\"/></svg>"];
+  $("stats").innerHTML = DATA.stats.map(([n,l],i) => `<div class="stat" style="--sc:${SC[i]};--i:${i}"><span class="si" aria-hidden="true">${SI[i]}</span><div class="n${n.length>4?" sm":""}" data-n="${esc(n)}"><bdi class="ltr">${esc(n)}</bdi></div><div class="l">${esc(l[lang])}</div></div>`).join("");
+  const iss = DATA.issuers[lang].map(s => `<span>${esc(s)}</span>`).join("");
+  $("track").innerHTML = iss + iss; $("marquee").setAttribute("aria-label", T.issuers);
+  $("cta").textContent = T.cta; $("ctaSub").textContent = T.ctaSub; $("work").textContent = T.work; $("wa").textContent = T.wa; $("mailL").textContent = T.mail;
+  $("copyT").textContent = T.copy; $("copyBtn").setAttribute("aria-label", T.copyLabel);
+  $("lb-x").setAttribute("aria-label", T.close); $("lb-prev").setAttribute("aria-label", T.prev); $("lb-next").setAttribute("aria-label", T.next);
+
+  flat = [];
+  const tile = it => {
+    const k = flat.push(it) - 1, t = it[lang];
+    return `<button type="button" class="tile" data-k="${k}" aria-label="${esc(t.title)}: ${esc(T.view)}">
+      <div class="shot">${(t.date.match(/\d{4}(?!.*\d{4})/)||[""])[0]?`<span class="badge">${(t.date.match(/\d{4}(?!.*\d{4})/))[0]}</span>`:""}<span class="box"><img src="${it.img}.jpg" alt="${esc(t.title)}" loading="lazy"></span><span class="zoom" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/></svg></span></div>
+      <div class="tinfo"><h3>${esc(t.title)}</h3><div class="by">${esc(t.issuer)}</div>${t.date?`<div class="dt">${esc(t.date)}</div>`:""}<p>${esc(t.desc)}</p></div>
+    </button>`;
+  };
+  $("groups").innerHTML = DATA.groups.map((g,gi) => {
+    const blocks = `<div class="tiles">${g.items.map(tile).join("")}</div>`;
+    const n = g.items.filter(i => !i.extra).length;
+    const G = g[lang];
+    return `<section class="group" id="${g.id}" style="--c:${g.c}" aria-labelledby="h-${g.id}">
+      <div class="bn"><span class="bnum">${String(gi+1).padStart(2,"0")}</span><div class="gtitle"><div class="alt">${esc(g[lang==="ar"?"en":"ar"].title)}</div><h2 id="h-${g.id}">${esc(G.title)}</h2></div><span class="bpill">${n} ${n===1?T.cert1:T.certN}${g.years?` · <bdi class="ltr">${esc(g.years)}</bdi>`:""}</span></div>
+      <p class="gsum">${G.issuer?`<b>${esc(G.issuer)}</b> · `:""}${esc(G.summary)}</p>
+      ${blocks}
+    </section>`;
+  }).join("");
+  animate();
+}
+
+function animate(){
+  const groups = document.querySelectorAll(".group"), tiles = document.querySelectorAll(".tile");
+  if (reduce || !("IntersectionObserver" in window)) { groups.forEach(g => g.classList.add("in")); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add(e.target.classList.contains("group") ? "in" : "seen"); io.unobserve(e.target); } }), {threshold:.12});
+  groups.forEach(g => io.observe(g)); tiles.forEach(t => io.observe(t));
+  tiles.forEach(t => {
+    t.addEventListener("pointermove", e => {
+      if (e.pointerType !== "mouse") return;
+      const r = t.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      t.style.setProperty("--ry", ((x - .5) * 8).toFixed(2) + "deg");
+      t.style.setProperty("--rx", ((.5 - y) * 6).toFixed(2) + "deg");
+    });
+    t.addEventListener("pointerleave", () => { t.style.setProperty("--rx","0deg"); t.style.setProperty("--ry","0deg"); });
+  });
+  document.querySelectorAll(".stat .n").forEach(el => {
+    const s = el.dataset.n; if (!/^\d+$/.test(s)) return;
+    const target = +s; let t0 = null;
+    const step = ts => { t0 ??= ts; const p = Math.min((ts - t0) / 1300, 1); el.firstChild.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+}
+
+/* certificate viewer */
+let cur = 0, last = null;
+const lb = $("lb");
+function show(k){
+  cur = (k + flat.length) % flat.length; const it = flat[cur], t = it[lang];
+  const img = $("lb-img"); img.src = `${it.img}.jpg`; img.alt = t.title;
+  img.style.animation = "none"; void img.offsetWidth; img.style.animation = "";
+  $("lb-title").textContent = t.title;
+  $("lb-by").textContent = t.issuer + (t.date ? " · " + t.date : "");
+  $("lb-desc").textContent = t.desc;
+  $("lb-count").textContent = `${cur+1} / ${flat.length}`;
+}
+$("groups").addEventListener("click", e => { const t = e.target.closest(".tile"); if (!t) return; last = t; show(+t.dataset.k); lb.classList.add("open"); document.body.style.overflow = "hidden"; $("lb-x").focus(); });
+const close = () => { lb.classList.remove("open"); document.body.style.overflow = ""; last && last.focus(); };
+$("lb-x").onclick = close;
+$("lb-prev").onclick = () => show(cur - 1);
+$("lb-next").onclick = () => show(cur + 1);
+$("lb-stage").addEventListener("click", e => { if (e.target.id === "lb-stage") close(); });
+addEventListener("keydown", e => {
+  if (!lb.classList.contains("open")) return;
+  const fwd = lang === "ar" ? "ArrowLeft" : "ArrowRight";
+  if (e.key === "Escape") close();
+  else if (e.key === fwd) show(cur + 1);
+  else if (e.key === "ArrowLeft" || e.key === "ArrowRight") show(cur - 1);
+});
+let sx = null;
+lb.addEventListener("touchstart", e => sx = e.touches[0].clientX, {passive:true});
+lb.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(cur + ((dx > 0) === (lang === "ar") ? 1 : -1)); sx = null; });
+
+$("copyBtn").addEventListener("click", async e => {
+  e.preventDefault(); e.stopPropagation();
+  const b = $("copyBtn"), T = DATA.ui[lang];
+  try { await navigator.clipboard.writeText("mennaelaraby.ai@gmail.com"); $("copyT").textContent = T.copied; b.classList.add("ok"); setTimeout(() => { $("copyT").textContent = DATA.ui[lang].copy; b.classList.remove("ok"); }, 1800); } catch (err) {}
+});
+
+render();
+</script>
+</body>
+</html>
